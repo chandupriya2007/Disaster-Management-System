@@ -1,0 +1,508 @@
+```css
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background-color: #0d47a1;
+    color: white;
+
+    padding: 18px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffcc80;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(13, 71, 161, 0.85),
+            rgba(13, 71, 161, 0.85)
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    padding: 40px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    background-color: #ff9800;
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #e68900;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    color: #0d47a1;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.section > p {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    margin-top: 35px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   FLOW
+========================= */
+
+.flow-section {
+    background-color: #eaf1fb;
+}
+
+.flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.flow-box {
+    background-color: white;
+
+    width: 190px;
+
+    padding: 25px 15px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.flow-box span {
+    display: inline-flex;
+
+    width: 40px;
+    height: 40px;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #0d47a1;
+    color: white;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.flow-box h3 {
+    color: #0d47a1;
+}
+
+.arrow {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.report-section {
+    background-color: white;
+}
+
+form {
+    max-width: 600px;
+
+    margin: 30px auto 0;
+
+    padding: 30px;
+
+    background-color: #f4f7fb;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+textarea {
+    height: 120px;
+
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #0d47a1;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #083579;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message {
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   REPORT CARDS
+========================= */
+
+#reportsContainer {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.report-card {
+    background-color: white;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-left: 5px solid #0d47a1;
+
+    border-radius: 5px;
+
+    text-align: left;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-card h3 {
+    color: #0d47a1;
+}
+
+.report-card p {
+    margin: 5px 0;
+}
+
+.status {
+    display: inline-block;
+
+    background-color: #ff9800;
+
+    color: white;
+
+    padding: 4px 10px;
+
+    border-radius: 15px;
+
+    font-size: 13px;
+}
+
+.no-reports {
+    color: #777;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    background-color: #0d47a1;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.contact h2 {
+    margin-bottom: 15px;
+}
+
+.emergency {
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+.emergency div {
+    background-color: white;
+
+    color: #222;
+
+    padding: 20px 50px;
+
+    border-radius: 10px;
+}
+
+.emergency h3 {
+    color: #0d47a1;
+}
+
+.emergency p {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #d32f2f;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: #062b63;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 800px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .section {
+        padding: 40px 20px;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .flow-box {
+        width: 100%;
+    }
+
+    .emergency div {
+        width: 100%;
+    }
+}
+```

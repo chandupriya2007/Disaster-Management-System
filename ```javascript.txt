@@ -1,0 +1,270 @@
+```javascript
+// ==========================================
+// DISASTER MANAGEMENT SYSTEM - JAVASCRIPT
+// ==========================================
+
+
+// Get the form
+const disasterForm = document.getElementById("disasterForm");
+
+// Get message area
+const message = document.getElementById("message");
+
+// Get reports container
+const reportsContainer =
+    document.getElementById("reportsContainer");
+
+
+// ==========================================
+// LOAD SAVED REPORTS
+// ==========================================
+
+function loadReports() {
+
+    // Get reports from localStorage
+    let reports =
+        JSON.parse(localStorage.getItem("disasterReports")) || [];
+
+    // If there are no reports
+    if (reports.length === 0) {
+
+        reportsContainer.innerHTML =
+            '<p class="no-reports">No disaster reports available.</p>';
+
+        return;
+    }
+
+    // Clear previous reports
+    reportsContainer.innerHTML = "";
+
+
+    // Display every report
+    reports.forEach(function(report, index) {
+
+        const reportCard =
+            document.createElement("div");
+
+        reportCard.className = "report-card";
+
+
+        reportCard.innerHTML = `
+            <h3>${report.disasterType}</h3>
+
+            <p>
+                <strong>Report No:</strong>
+                ${index + 1}
+            </p>
+
+            <p>
+                <strong>Name:</strong>
+                ${report.name}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                ${report.location}
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                ${report.description}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="status">
+                    ${report.status}
+                </span>
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                ${report.date}
+            </p>
+        `;
+
+
+        reportsContainer.appendChild(reportCard);
+
+    });
+}
+
+
+// ==========================================
+// SUBMIT DISASTER REPORT
+// ==========================================
+
+disasterForm.addEventListener(
+    "submit",
+    function(event) {
+
+        // Stop page refresh
+        event.preventDefault();
+
+
+        // Get values from form
+        const name =
+            document.getElementById("name").value.trim();
+
+        const disasterType =
+            document.getElementById("disasterType").value;
+
+        const location =
+            document.getElementById("location").value.trim();
+
+        const description =
+            document.getElementById("description").value.trim();
+
+
+        // ==================================
+        // FORM VALIDATION
+        // ==================================
+
+        if (name === "") {
+
+            showError("Please enter your name.");
+            return;
+        }
+
+
+        if (disasterType === "") {
+
+            showError("Please select a disaster type.");
+            return;
+        }
+
+
+        if (location === "") {
+
+            showError("Please enter the location.");
+            return;
+        }
+
+
+        if (description === "") {
+
+            showError("Please describe the disaster.");
+            return;
+        }
+
+
+        // ==================================
+        // GET OLD REPORTS
+        // ==================================
+
+        let reports =
+            JSON.parse(
+                localStorage.getItem("disasterReports")
+            ) || [];
+
+
+        // ==================================
+        // CREATE NEW REPORT
+        // ==================================
+
+        const newReport = {
+
+            name: name,
+
+            disasterType: disasterType,
+
+            location: location,
+
+            description: description,
+
+            status: "Reported",
+
+            date: new Date().toLocaleString()
+
+        };
+
+
+        // Add new report
+        reports.push(newReport);
+
+
+        // ==================================
+        // SAVE REPORT
+        // ==================================
+
+        localStorage.setItem(
+            "disasterReports",
+            JSON.stringify(reports)
+        );
+
+
+        // ==================================
+        // SUCCESS MESSAGE
+        // ==================================
+
+        message.innerText =
+            "Disaster report submitted successfully!";
+
+        message.style.backgroundColor =
+            "#d4edda";
+
+        message.style.color =
+            "#155724";
+
+        message.style.padding =
+            "15px";
+
+
+        // Clear form
+        disasterForm.reset();
+
+
+        // Display updated reports
+        loadReports();
+
+    }
+);
+
+
+// ==========================================
+// ERROR MESSAGE FUNCTION
+// ==========================================
+
+function showError(text) {
+
+    message.innerText = text;
+
+    message.style.backgroundColor =
+        "#ffdddd";
+
+    message.style.color =
+        "#b00020";
+
+    message.style.padding =
+        "15px";
+}
+
+
+// ==========================================
+// DELETE ALL REPORTS
+// ==========================================
+
+function deleteAllReports() {
+
+    localStorage.removeItem("disasterReports");
+
+    loadReports();
+
+    message.innerText =
+        "All reports have been deleted.";
+
+    message.style.backgroundColor =
+        "#ffdddd";
+
+    message.style.color =
+        "#b00020";
+
+}
+
+
+// ==========================================
+// LOAD REPORTS WHEN PAGE OPENS
+// ==========================================
+
+loadReports();
+```
